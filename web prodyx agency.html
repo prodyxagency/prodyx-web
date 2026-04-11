@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prodyx Agency — Automatización & Marketing Digital</title>
+  <meta name="description" content="Automatizamos tu operación y gestionamos tus campañas digitales con inteligencia artificial. Sin que tengas que contratar un equipo para eso." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;700;900&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0A1628;
+      --bg2: #0F1E35;
+      --bg3: #162440;
+      --cyan: #00C9C8;
+      --cyan-dim: rgba(0,201,200,0.15);
+      --cyan-border: rgba(0,201,200,0.2);
+      --text: #E8EDF5;
+      --muted: #8BA3C0;
+      --font-head: 'Exo 2', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 60px;
+      background: rgba(10,22,40,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 0.5px solid var(--cyan-border);
+    }
+
+    .nav-logo {
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--cyan);
+      letter-spacing: 3px;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--cyan); }
+
+    .nav-cta {
+      background: var(--cyan);
+      color: var(--bg);
+      font-family: var(--font-head);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      padding: 9px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    #particles {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      padding: 160px 60px 80px;
+      flex: 1;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,201,200,0.08);
+      border: 0.5px solid var(--cyan-border);
+      color: var(--cyan);
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      padding: 5px 12px;
+      border-radius: 3px;
+      margin-bottom: 24px;
+      font-family: var(--font-head);
+    }
+
+    .tag-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--cyan);
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+
+    .hero-title {
+      font-family: var(--font-head);
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .hero-title .line2 {
+      display: block;
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .hero-title .accent { color: var(--cyan); }
+
+    .hero-sub {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin: 20px 0 32px;
+      max-width: 440px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--cyan);
+      color: var(--bg);
+      font-family: var(--font-head);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 13px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { opacity: 0.85; }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--cyan);
+      border: 0.5px solid rgba(0,201,200,0.5);
+      font-family: var(--font-head);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      padding: 13px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.2s;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover { background: var(--cyan-dim); }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 0.5px solid rgba(0,201,200,0.1);
+    }
+
+    .stat-val {
+      font-family: var(--font-head);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--cyan);
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 2px;
+      letter-spacing: 0.3px;
+    }
+
+    /* Hero right panel */
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .tech-card {
+      background: rgba(15,30,53,0.85);
+      border: 0.5px solid rgba(0,201,200,0.12);
+      border-radius: 8px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      backdrop-filter: blur(4px);
+      transition: border-color 0.2s;
+    }
+
+    .tech-card.active { border-color: rgba(0,201,200,0.35); }
+    .tech-card:hover { border-color: rgba(0,201,200,0.4); }
+
+    .tech-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      background: rgba(0,201,200,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .tech-info { flex: 1; min-width: 0; }
+
+    .tech-name {
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .tech-desc { font-size: 11px; color: var(--muted); }
+
+    .tech-bar {
+      height: 3px;
+      background: rgba(0,201,200,0.1);
+      border-radius: 2px;
+      margin-top: 8px;
+      overflow: hidden;
+    }
+
+    .tech-bar-fill {
+      height: 100%;
+      background: var(--cyan);
+      border-radius: 2px;
+    }
+
+    .tech-status {
+      font-size: 10px;
+      font-family: var(--font-head);
+      letter-spacing: 1px;
+      flex-shrink: 0;
+    }
+
+    .tech-status.on { color: var(--cyan); }
+    .tech-status.idle { color: var(--muted); }
+
+    .hero-line {
+      position: relative;
+      z-index: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,201,200,0.3), transparent);
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 80px 60px; border-bottom: 0.5px solid rgba(0,201,200,0.07); }
+
+    .section-label {
+      font-family: var(--font-head);
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--cyan);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-head);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .section-sub {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.8;
+      margin-bottom: 48px;
+    }
+
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: var(--cyan);
+      margin: 16px 0 40px;
+    }
+
+    /* ── PROBLEMA ── */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 20px;
+    }
+
+    .problem-card {
+      background: var(--bg2);
+      border: 0.5px solid rgba(0,201,200,0.12);
+      border-radius: 10px;
+      padding: 32px;
+      transition: border-color 0.25s;
+    }
+
+    .problem-card:hover { border-color: rgba(0,201,200,0.3); }
+
+    .problem-num {
+      font-family: var(--font-head);
+      font-size: 40px;
+      font-weight: 900;
+      color: rgba(0,201,200,0.1);
+      margin-bottom: 16px;
+      line-height: 1;
+    }
+
+    .problem-card h3 {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .problem-card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* ── SERVICIOS ── */
+    .pillars {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+      gap: 24px;
+    }
+
+    .pillar {
+      background: var(--bg2);
+      border-radius: 10px;
+      padding: 32px;
+      border-top: 2px solid var(--cyan);
+    }
+
+    .pillar h3 {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--cyan);
+      margin-bottom: 10px;
+    }
+
+    .pillar > p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .service-list { display: flex; flex-direction: column; gap: 9px; }
+
+    .service-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: #C8D8E8;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      flex-shrink: 0;
+    }
+
+    /* Marketing pillar extras */
+    .campaign-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0,201,200,0.08);
+      border: 0.5px solid var(--cyan-border);
+      border-radius: 4px;
+      padding: 4px 10px;
+      font-size: 10px;
+      color: var(--cyan);
+      font-family: var(--font-head);
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    .badge-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--cyan);
+      animation: blink 1.5s infinite;
+    }
+
+    .mini-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .mini-metric {
+      background: rgba(0,201,200,0.06);
+      border: 0.5px solid var(--cyan-border);
+      border-radius: 6px;
+      padding: 10px 12px;
+    }
+
+    .mini-metric-label {
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      color: var(--cyan);
+      font-family: var(--font-head);
+      margin-bottom: 4px;
+    }
+
+    .mini-metric-val {
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .mini-metric-sub {
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .bar-row { margin-bottom: 10px; }
+
+    .bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+
+    .bar-track {
+      height: 4px;
+      background: rgba(0,201,200,0.1);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: var(--cyan);
+      border-radius: 2px;
+    }
+
+    /* ── POR QUÉ ── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 16px;
+    }
+
+    .why-card {
+      background: var(--bg2);
+      border-radius: 10px;
+      padding: 24px;
+      border: 0.5px solid rgba(0,201,200,0.1);
+      text-align: center;
+      transition: border-color 0.25s;
+    }
+
+    .why-card:hover { border-color: rgba(0,201,200,0.3); }
+
+    .why-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      background: rgba(0,201,200,0.1);
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .why-card h4 {
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .why-card p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── BLOG ── */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 20px;
+    }
+
+    .blog-card {
+      background: var(--bg2);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 0.5px solid rgba(0,201,200,0.1);
+      transition: border-color 0.25s, transform 0.25s;
+      cursor: pointer;
+    }
+
+    .blog-card:hover {
+      border-color: rgba(0,201,200,0.3);
+      transform: translateY(-3px);
+    }
+
+    .blog-img {
+      height: 110px;
+      background: var(--bg3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 0.5px solid rgba(0,201,200,0.08);
+    }
+
+    .blog-body { padding: 20px; }
+
+    .blog-tag {
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: var(--cyan);
+      font-family: var(--font-head);
+      margin-bottom: 8px;
+    }
+
+    .blog-card h4 {
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .blog-card p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── FORMULARIO ── */
+    #contacto { background: var(--bg); }
+
+    .form-wrap {
+      max-width: 580px;
+      margin: 0 auto;
+      background: var(--bg2);
+      border-radius: 12px;
+      padding: 48px;
+      border: 0.5px solid var(--cyan-border);
+    }
+
+    .form-wrap h2 {
+      font-family: var(--font-head);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .form-wrap > p {
+      font-size: 14px;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    .field { margin-bottom: 16px; }
+
+    .field label {
+      display: block;
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 6px;
+      letter-spacing: 1px;
+      font-family: var(--font-head);
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      background: var(--bg);
+      border: 0.5px solid var(--cyan-border);
+      border-radius: 6px;
+      padding: 11px 14px;
+      color: var(--text);
+      font-size: 14px;
+      font-family: var(--font-body);
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--cyan);
+    }
+
+    .field textarea { height: 90px; resize: none; }
+
+    .field select { cursor: pointer; }
+
+    .submit-btn {
+      width: 100%;
+      background: var(--cyan);
+      color: var(--bg);
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      padding: 15px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: opacity 0.2s;
+    }
+
+    .submit-btn:hover { opacity: 0.85; }
+
+    .calendly-link {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .calendly-link a {
+      color: var(--cyan);
+      text-decoration: underline;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 40px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 0.5px solid rgba(0,201,200,0.1);
+    }
+
+    .footer-logo {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--cyan);
+      letter-spacing: 3px;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--cyan); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .hero-inner { grid-template-columns: 1fr; padding: 120px 24px 60px; }
+      .hero-right { display: none; }
+      section { padding: 60px 24px; }
+      .problem-grid { grid-template-columns: 1fr; }
+      .pillars { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .form-wrap { padding: 28px 20px; }
+      footer { flex-direction: column; gap: 20px; text-align: center; padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="#hero" class="nav-logo">PRODYX</a>
+    <ul class="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#por-que">Nosotros</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="#contacto" class="nav-cta">AGENDAR REUNIÓN</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <canvas id="particles"></canvas>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-tag">
+          <div class="tag-dot"></div>
+          AUTOMATIZACIÓN · MARKETING · IA
+        </div>
+        <h1 class="hero-title">
+          Tu empresa no necesita más gente.
+          <span class="line2">Necesita <span class="accent">mejores procesos</span> y marketing que venda.</span>
+        </h1>
+        <p class="hero-sub">Automatizamos tu operación y gestionamos tus campañas digitales con inteligencia artificial como base de trabajo. Sin que tengas que contratar un equipo para eso.</p>
+        <div class="hero-btns">
+          <a href="#contacto" class="btn-primary" data-cta="procesos">QUIERO ORDENAR MIS PROCESOS</a>
+          <a href="#contacto" class="btn-secondary" data-cta="marketing">QUIERO HACER CAMPAÑAS</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="stat-val">-60%</div>
+            <div class="stat-label">Tareas manuales eliminadas</div>
+          </div>
+          <div>
+            <div class="stat-val">3x</div>
+            <div class="stat-label">Velocidad operativa</div>
+          </div>
+          <div>
+            <div class="stat-val">100%</div>
+            <div class="stat-label">Medible desde el día 1</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="tech-card active">
+          <div class="tech-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <rect x="2" y="2" width="6" height="6" rx="1" stroke="#00C9C8" stroke-width="1.2"/>
+              <rect x="10" y="2" width="6" height="6" rx="1" stroke="#00C9C8" stroke-width="1.2"/>
+              <rect x="2" y="10" width="6" height="6" rx="1" stroke="#00C9C8" stroke-width="1.2"/>
+              <circle cx="13" cy="13" r="3" stroke="#00C9C8" stroke-width="1.2"/>
+            </svg>
+          </div>
+          <div class="tech-info">
+            <div class="tech-name">Automatización de procesos</div>
+            <div class="tech-desc">n8n · Zapier · Scripts a medida</div>
+            <div class="tech-bar"><div class="tech-bar-fill" style="width:82%"></div></div>
+          </div>
+          <div class="tech-status on">ACTIVO</div>
+        </div>
+
+        <div class="tech-card active">
+          <div class="tech-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <polyline points="2,13 6,7 10,10 16,3" stroke="#00C9C8" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <circle cx="16" cy="3" r="1.5" fill="#00C9C8"/>
+            </svg>
+          </div>
+          <div class="tech-info">
+            <div class="tech-name">Marketing digital</div>
+            <div class="tech-desc">Meta Ads · Google Ads · Funnels</div>
+            <div class="tech-bar"><div class="tech-bar-fill" style="width:67%"></div></div>
+          </div>
+          <div class="tech-status on">ACTIVO</div>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="8" r="4" stroke="#8BA3C0" stroke-width="1.2"/>
+              <path d="M4 15 Q9 11 14 15" stroke="#8BA3C0" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="tech-info">
+            <div class="tech-name">Consultoría de liderazgo</div>
+            <div class="tech-desc">Gestión de equipos · PM · Estrategia</div>
+            <div class="tech-bar"><div class="tech-bar-fill" style="width:45%"></div></div>
+          </div>
+          <div class="tech-status idle">DISPONIBLE</div>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <rect x="2" y="4" width="14" height="10" rx="1.5" stroke="#8BA3C0" stroke-width="1.2"/>
+              <line x1="5" y1="8" x2="13" y2="8" stroke="#8BA3C0" stroke-width="1" stroke-linecap="round"/>
+              <line x1="5" y1="11" x2="9" y2="11" stroke="#8BA3C0" stroke-width="1" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="tech-info">
+            <div class="tech-name">Paneles de métricas</div>
+            <div class="tech-desc">Power BI · Reporting · KPIs</div>
+            <div class="tech-bar"><div class="tech-bar-fill" style="width:30%"></div></div>
+          </div>
+          <div class="tech-status idle">DISPONIBLE</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-line"></div>
+  </section>
+
+  <!-- PROBLEMA -->
+  <section id="problema">
+    <div class="section-label">EL PROBLEMA</div>
+    <h2 class="section-title">¿Te identificás con alguno de estos escenarios?</h2>
+    <div class="divider"></div>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-num">01</div>
+        <h3>Tu empresa crece pero tus procesos no escalan</h3>
+        <p>Cada vez que sumás clientes o proyectos, el caos interno crece proporcionalmente. Todo depende de personas haciendo cosas a mano, de forma desorganizada y sin estructura.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">02</div>
+        <h3>El desorden tiene un costo que no estás viendo</h3>
+        <p>Horas de trabajo en tareas que se podrían automatizar. Recursos destinados a procesos manuales innecesarios. Ese costo está ahí, aunque no aparezca en ningún informe.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">03</div>
+        <h3>Sabés que la IA puede ayudarte. Pero no sabés cómo.</h3>
+        <p>Escuchás hablar de automatización e inteligencia artificial todo el tiempo. Pero no tenés el expertise técnico ni el tiempo para implementarlo solo en tu empresa.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <div class="section-label">NUESTROS SERVICIOS</div>
+    <h2 class="section-title">Dos pilares. Un solo equipo externo.</h2>
+    <div class="divider"></div>
+    <div class="pillars">
+      <div class="pillar">
+        <h3>Automatización & Procesos</h3>
+        <p>Ordenamos y automatizamos tu operación interna para que tu equipo deje de hacer lo que una máquina puede hacer mejor.</p>
+        <div class="service-list">
+          <div class="service-item"><div class="dot"></div>Automatización con Zapier y n8n</div>
+          <div class="service-item"><div class="dot"></div>Desarrollo de scripts a medida</div>
+          <div class="service-item"><div class="dot"></div>Optimización de flujos operativos</div>
+          <div class="service-item"><div class="dot"></div>Gestión de proyectos (PM)</div>
+          <div class="service-item"><div class="dot"></div>Paneles de métricas con Power BI</div>
+          <div class="service-item"><div class="dot"></div>Desarrollo web</div>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <h3>Marketing Digital & Diseño</h3>
+        <p>Gestionamos tus campañas, funnels y comunicación visual de principio a fin. Con estrategia real y resultados medibles.</p>
+
+        <div class="campaign-badge">
+          <div class="badge-dot"></div>
+          CAMPAÑA ACTIVA
+        </div>
+
+        <div class="mini-metrics">
+          <div class="mini-metric">
+            <div class="mini-metric-label">ALCANCE</div>
+            <div class="mini-metric-val">84k</div>
+            <div class="mini-metric-sub">Esta semana</div>
+          </div>
+          <div class="mini-metric">
+            <div class="mini-metric-label">CONVERSIÓN</div>
+            <div class="mini-metric-val">3.8%</div>
+            <div class="mini-metric-sub">+0.6% vs mes ant.</div>
+          </div>
+        </div>
+
+        <div class="bar-row">
+          <div class="bar-label"><span>Meta Ads</span><span>72%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:72%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>Google Ads</span><span>58%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:58%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>Diseño & Creatividades</span><span>90%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
+        </div>
+
+        <div class="service-list" style="margin-top:16px">
+          <div class="service-item"><div class="dot"></div>Estrategia y gestión de campañas</div>
+          <div class="service-item"><div class="dot"></div>Funnels de venta completos</div>
+          <div class="service-item"><div class="dot"></div>Diseño gráfico y creatividades</div>
+          <div class="service-item"><div class="dot"></div>Branding y comunicación visual</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUÉ PRODYX -->
+  <section id="por-que">
+    <div class="section-label">POR QUÉ PRODYX</div>
+    <h2 class="section-title">Lo que nos hace diferentes</h2>
+    <div class="divider"></div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <circle cx="11" cy="11" r="9" stroke="#00C9C8" stroke-width="1.2"/>
+            <path d="M7 11l3 3 5-5" stroke="#00C9C8" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h4>IA como base de trabajo</h4>
+        <p>No usamos IA como un plus. Es el núcleo de cómo trabajamos en cada proyecto desde el día uno.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <rect x="3" y="3" width="7" height="7" rx="1.5" stroke="#00C9C8" stroke-width="1.2"/>
+            <rect x="12" y="3" width="7" height="7" rx="1.5" stroke="#00C9C8" stroke-width="1.2"/>
+            <rect x="3" y="12" width="7" height="7" rx="1.5" stroke="#00C9C8" stroke-width="1.2"/>
+            <rect x="12" y="12" width="7" height="7" rx="1.5" stroke="#00C9C8" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <h4>Equipo externo, mentalidad interna</h4>
+        <p>Trabajamos como si fuéramos parte de tu empresa, sin la burocracia de contratar uno.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <polyline points="3,16 7,10 12,13 19,4" stroke="#00C9C8" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <h4>Resultados medibles</h4>
+        <p>Todo lo que hacemos tiene métricas. Si no se puede medir, no lo hacemos.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <circle cx="11" cy="11" r="9" stroke="#00C9C8" stroke-width="1.2"/>
+            <line x1="11" y1="6" x2="11" y2="11" stroke="#00C9C8" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="11" y1="11" x2="14" y2="13" stroke="#00C9C8" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h4>Sin agrandar tu estructura</h4>
+        <p>Optimizamos lo que ya tenés. No te vendemos más gente ni más complejidad.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section id="blog">
+    <div class="section-label">EL COSTO DE NO CAMBIAR</div>
+    <h2 class="section-title">Casos reales, dolores reales</h2>
+    <div class="divider"></div>
+    <div class="blog-grid">
+      <div class="blog-card">
+        <div class="blog-img">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+            <circle cx="22" cy="22" r="18" stroke="rgba(0,201,200,0.2)" stroke-width="1"/>
+            <path d="M12 32 Q22 8 32 32" stroke="#00C9C8" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="blog-body">
+          <div class="blog-tag">PROCESOS · LECTURA 3 MIN</div>
+          <h4>¿Por qué tu empresa crece pero sigue siendo un caos?</h4>
+          <p>Cuando los procesos no escalan junto con el negocio, el crecimiento se convierte en un problema en lugar de un logro.</p>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-img">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+            <rect x="10" y="12" width="24" height="20" rx="2" stroke="rgba(0,201,200,0.2)" stroke-width="1"/>
+            <path d="M16 22h12M16 27h8" stroke="#00C9C8" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="blog-body">
+          <div class="blog-tag">COSTOS · LECTURA 4 MIN</div>
+          <h4>El costo oculto de operar en modo manual</h4>
+          <p>Cada tarea repetitiva que hace un humano tiene un precio. Y se acumula más rápido de lo que pensás.</p>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-img">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+            <circle cx="22" cy="20" r="10" stroke="rgba(0,201,200,0.2)" stroke-width="1"/>
+            <path d="M14 34 Q22 26 30 34" stroke="#00C9C8" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <circle cx="22" cy="20" r="3" fill="#00C9C8" fill-opacity="0.3"/>
+          </svg>
+        </div>
+        <div class="blog-body">
+          <div class="blog-tag">IA · LECTURA 4 MIN</div>
+          <h4>Sabés que la IA puede ayudarte. ¿Por qué todavía no lo hiciste?</h4>
+          <p>El problema no es el acceso a la tecnología. Es saber por dónde empezar sin perder tiempo ni dinero.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULARIO -->
+  <section id="contacto">
+    <div class="form-wrap">
+      <h2>Hablemos de tu empresa</h2>
+      <p>Completá el formulario y agendamos una reunión sin costo para entender qué necesitás.</p>
+      <div class="field">
+        <label>NOMBRE</label>
+        <input type="text" placeholder="Tu nombre completo" />
+      </div>
+      <div class="field">
+        <label>EMPRESA</label>
+        <input type="text" placeholder="Nombre de tu empresa" />
+      </div>
+      <div class="field">
+        <label>EMAIL</label>
+        <input type="email" placeholder="tu@empresa.com" />
+      </div>
+      <div class="field">
+        <label>¿QUÉ NECESITÁS?</label>
+        <select>
+          <option value="">Seleccioná una opción</option>
+          <option value="procesos">Ordenar mis procesos internos</option>
+          <option value="marketing">Gestionar campañas de marketing</option>
+          <option value="ambos">Las dos cosas</option>
+          <option value="consulta">Todavía no lo tengo claro</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>CONTANOS MÁS (OPCIONAL)</label>
+        <textarea placeholder="Describí brevemente tu situación actual..."></textarea>
+      </div>
+      <button class="submit-btn">ENVIAR Y AGENDAR REUNIÓN</button>
+      <div class="calendly-link">
+        O si preferís, <a href="#" target="_blank">agendá directamente en nuestro calendario →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <div class="footer-logo">PRODYX</div>
+      <div class="footer-copy">© 2026 Prodyx Agency. Todos los derechos reservados.</div>
+    </div>
+    <div class="footer-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#blog">Blog</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#" target="_blank">LinkedIn</a>
+    </div>
+  </footer>
+
+  <!-- PARTICLES SCRIPT -->
+  <script>
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    let pts = [];
+    const N = 60;
+
+    function resize() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+
+    function init() {
+      resize();
+      pts = [];
+      for (let i = 0; i < N; i++) {
+        pts.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: (Math.random() - 0.5) * 0.4,
+          r: Math.random() * 1.5 + 0.5
+        });
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < N; i++) {
+        const p = pts[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(0,201,200,0.45)';
+        ctx.fill();
+        for (let j = i + 1; j < N; j++) {
+          const q = pts[j];
+          const dx = p.x - q.x, dy = p.y - q.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 110) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(q.x, q.y);
+            ctx.strokeStyle = `rgba(0,201,200,${0.12 * (1 - dist / 110)})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+
+    init();
+    draw();
+    window.addEventListener('resize', init);
+
+    // Guardar UTM params en sessionStorage
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const utms = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
+      utms.forEach(k => {
+        if (params.get(k)) sessionStorage.setItem(k, params.get(k));
+      });
+    })();
+  </script>
+
+</body>
+</html>
