@@ -1223,9 +1223,11 @@
         body: JSON.stringify(payload)
       }).catch(e => console.warn('Webhook n8n:', e));
 
+      // no-cors evita el preflight CORS que Apps Script no maneja
       fetch(SHEETS_BACKUP_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify(payload)
       }).catch(e => console.warn('Google Sheets backup:', e));
 
